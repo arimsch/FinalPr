@@ -13,14 +13,9 @@ import static org.hamcrest.MatcherAssert.*;
 
 
 public class LoginPage extends BasePage {
-//переменные для входа
     private static final By SIGN_IN_LOCATOR = By.xpath(".//*[contains(@data-l, \"sign_in\")]");
     private static final By logField = By.cssSelector("#field_email");
     private static final By pasField = By.cssSelector("#field_password");
-    private static final TestBot TB = new TestBot("+79500071367", "123QWE","Арина Матушкина");
-    //для проверки корректности входа
-    private static final By UserName = By.xpath("//div[@class=\"tico ellip\"]");
-    private String ActualName;
 
 
     public LoginPage(){
@@ -33,15 +28,13 @@ public class LoginPage extends BasePage {
         clickable(SIGN_IN_LOCATOR);
     }
 
-    public void login() {
+    public MainUserPage login(String log, String pas) {
         clear();
+        TestBot TB = new TestBot(log,pas);
         $(logField).sendKeys(TB.getLogin());
         $(pasField).sendKeys(TB.getPassword());
         $(SIGN_IN_LOCATOR).click();
-        ActualName=$(UserName).getText();
-        Assert.assertEquals("Не тот пользователь",TB.getName(),ActualName);
-        //assertThat(ActualName, equalTo("New York"));
-
+        return new MainUserPage();
     }
 
     private static void clear() {

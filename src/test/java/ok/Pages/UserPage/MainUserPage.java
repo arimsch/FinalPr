@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class MainUserPage extends BasePage {
     private static final By UserPhoto =By.xpath(".//input[@name='photo']");
     private static final By HeaderBar=By.xpath(".//*[@class= 'toolbar_decor']");
+    private static final By UserName = By.xpath("//div[@class=\"tico ellip\"]");
     private static final By Note=By.linkText("Заметки");
 
 
@@ -25,12 +26,16 @@ public class MainUserPage extends BasePage {
         $(HeaderBar).should(Condition.appear);
     }
 
+    public String GetName(){
+        return $(UserName).getText();
+    }
+
     public FriendsPage gotoFriendsPage(){
      Header.Button.click(Header.Button.Friends);
      return new FriendsPage();
     }
 
-    public MusicPage OpenMusic()
+    public MusicPage OpenMusicRecommend()
     {
         Header.Button.click(Header.Button.Music);
         return new MusicPage();

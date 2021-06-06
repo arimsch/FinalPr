@@ -9,6 +9,7 @@ import java.util.List;
 
 import static com.codeborne.selenide.Selenide.*;
 
+//страница музыка "для вас"
 public class MusicPage extends BasePage {
 
     private static final By ButtonForYou=By.xpath(".//a[@data-l=\"t,showcase\"]");
@@ -17,7 +18,6 @@ public class MusicPage extends BasePage {
     private static final By Add = By.xpath(".//*[@title=\"Добавить в мою музыку\"]");
     private static final By Del = By.xpath(".//*[@title=\"Добавлено\"]");
     private List<WrapMusicTrack> elTracks;
-    //private int index = 0;
 
 
     public MusicPage(){
@@ -31,14 +31,18 @@ public class MusicPage extends BasePage {
         $(TrackCard).waitUntil(Condition.visible,800);
     }
 
-    public void AddTrack(){
+    public void AddTrackFromRecommend(int indexTr){
         $(ButtonForYou).click();
-        WrapMusicTrack.ChooseTrack(elTracks.get(0));
+        WrapMusicTrack.ChooseTrack(elTracks.get(indexTr));
         $(Add).should(Condition.exist).click();
     }
 
+    public static MyMusicPage GoMyMusic(){
+        $(ButtonMyMusic).click();
+        return new MyMusicPage();
+    }
     //удаляет текущий трек(который открыт у пользователя)
     public void DelTrack(){
-        $(Del).should(Condition.exist).click();
+        $(Del).should(Condition.visible).click();
     }
 }

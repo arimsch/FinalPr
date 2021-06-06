@@ -12,6 +12,7 @@ import java.util.List;
 
 public class WrapMusicTrack extends BasePage {
     private final SelenideElement card;
+    private static final By WrapMusicTrackName=By.cssSelector("[data-l=\"t,title\"]");
 
     public WrapMusicTrack(SelenideElement card){
         super();
@@ -38,6 +39,10 @@ public class WrapMusicTrack extends BasePage {
 
     public static void ChooseTrack(WrapMusicTrack el) {
         el.card.click();
+    }
+
+    public static String GetNameTrack(WrapMusicTrack el){
+        return el.card.$(WrapMusicTrackName).getText();
     }
 
 }

@@ -19,9 +19,8 @@ public class BaseTest {
     //Инициируем драйвер и соверщаем вход на сайт
     @BeforeClass
     public static void Init() {
-        System.setProperty("webdriver.chrome.driver", "C:\\configs\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\configs1\\chromedriver.exe");
         Configuration.baseUrl="https://ok.ru/";
         open("/");
-        new LoginPage().login();
     }
 }

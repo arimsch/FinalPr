@@ -3,12 +3,10 @@ package ok;
 public class TestBot {
     private final String login;
     private final String password;
-    private final String UsName;
 
-    public TestBot(String login, String password, String name){
+    public TestBot(String login, String password){
         this.login=login;
         this.password=password;
-        this.UsName=name;
     }
 
 
@@ -20,8 +18,5 @@ public class TestBot {
         return password;
     }
 
-    public String getName(){
-        return UsName;
-    }
 
 }

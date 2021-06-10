@@ -29,7 +29,8 @@ public class WriteNote extends BaseTest{
         root = new MainUserPage();
         root
                 .OpenNote()
-        .AddN();
+        .AddN("Test");
+        Assert.assertTrue(NotePage.SuccessfulTestAddNote());
     }
 
     //удаляем написанную заметку

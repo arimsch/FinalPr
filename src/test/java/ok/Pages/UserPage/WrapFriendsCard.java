@@ -5,7 +5,9 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import ok.BasePage;
 import ok.Pages.ServicePage.MessagePage;
+import ok.Tests.BaseTest;
 import org.openqa.selenium.By;
+import static org.hamcrest.MatcherAssert.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,7 +28,7 @@ public class WrapFriendsCard extends BasePage {
 
     @Override
     protected void check() {
-        clickable(ButtonWrite);
+
     }
 
 
@@ -51,7 +53,7 @@ public class WrapFriendsCard extends BasePage {
     }
 
     public static MessagePage GoDilog(WrapFriendsCard el) {
-        el.card.$(ButtonWrite).click();
+        el.card.$(ButtonWrite).shouldBe(Condition.visible).click();
         return new MessagePage();
     }
 }

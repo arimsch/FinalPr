@@ -2,6 +2,7 @@ package ok.Tests;
 
 import com.codeborne.selenide.Condition;
 import ok.Pages.LoginPage;
+import ok.Pages.ServicePage.MessagePage;
 import ok.Pages.UserPage.MainUserPage;
 import ok.TestBot;
 import org.junit.Assert;
